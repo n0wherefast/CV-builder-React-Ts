@@ -1,0 +1,179 @@
+
+{
+
+"Personal_Detail_Data_Reference": [
+    {
+    "id":0,
+    "name":"Name",
+     "type":"text",
+     "change":"name",
+     "classNameLabel":"form-label",
+     "Classname":"col-md-6",
+     "classnameInput":"form-control",
+     "placeholder":"jhon Doeman"
+    },
+
+{
+    "id":1,
+    "name":"title",
+    "type":"text",
+    "change":"title",
+    "classNameLabel":"form-label",
+    "Classname":"col-md-6",
+    "classnameInput":"form-control",
+    "placeholder":"Software Developer"
+},
+
+{
+    "id":2,
+    "name":"Email", 
+     "type":"text",
+     "change":"email",
+     "classNameLabel":"form-label",
+     "Classname":"col-md-6",
+     "classnameInput":"form-control",
+     "placeholder":"doeman@gmail.com"
+    },
+    
+{
+    "id":3,
+    "name":"Phone", 
+    "type":"number",
+    "change":"phone",
+    "classNameLabel":"form-label",
+    "Classname":"col-md-6",
+    "classnameInput":"form-control",
+    "placeholder":"1234 5678"
+},
+
+{
+    "id":4,
+    "name":"City",
+     "type":"text",
+     "change":"city",
+     "classNameLabel":"form-label",
+     "Classname":"col-md-6",
+     "classnameInput":"form-control",
+     "placeholder":"Los Angeles,CA"
+    },
+
+{
+    "id":5,
+    "name":"About Me",
+     "type":"textarea",
+     "change":"about",
+     "classNameLabel":"form-label",
+     "Classname":"col-12",
+     "classnameInput":"form-control",
+     "placeholder":"Enter your text here"
+    }
+ ],
+
+
+ "Work_Experience_Data_Reference": [
+    {
+        "id":6,
+        "head":"Company",
+        "type":"text",
+        "change":"company",
+        "classnamelabel":"form-label",
+        "classnamediv":"col-md-6",
+        "classnameInput":"form-control",
+        "placeholder":"A Software Company"
+    },
+
+    {
+        "id":7, 
+        "head":"Position",
+         "type":"text",
+         "change":"'position",
+         "classnamelabel":"form-label",
+         "classnamediv":"col-md-6",
+         "classnameInput":"form-control",
+         "placeholder":"Software Engineer"
+
+    },
+
+    {
+         "id":8,
+         "head":"Start Date",
+         "type":"date",
+         "change":"start",
+         "classnamelabel":"form-label",
+         "classnamediv":"col-md-6",
+         "classnameInput":"form-control"
+    },
+
+    {
+        "id":9,
+        "head":"End Date",
+         "type":"date",
+         "change":"end",
+         "classnamelabel":"form-label",
+         "classnamediv":"col-md-6",
+         "classnameInput":"form-control"
+
+    },
+
+    {
+         "id":10,
+         "head":"'Description",
+         "type":"'text",
+         "change":"description",
+         "classnamelabel":"form-label",
+         "classnamediv":"col-md-6",
+         "classnameInput":"form-control",
+        " placeholder":"Enter here your description"
+    }
+],
+
+"Education_Data_Referece" : [
+
+    {
+         "id":11,
+         "head":"Course",
+         "type":"text",
+         "change":"course",
+         "classnamelabel":"form-label",
+         "classnamediv":"col-md-6",
+         "classnameInput":"form-control",
+         "placeholder":"Course"
+        
+     },
+
+    {
+         "id":12,
+         "head":"University",
+         "type":"text",
+         "change":"school",
+         "classnamelabel":"form-label",
+         "classnamediv":"col-md-6",
+         "classnameInput":"form-control",
+         "placeholder":"Harvard University"
+        
+     },
+
+    {
+         "id":13,
+         "head":"Date",
+         "type":"date",
+         "change":"'date",
+         "classnamediv":"col-md-6",
+         "classnameInput":"form-control",
+         "placeholder":"Enter here your description"
+        
+    },
+    
+    {
+         "id":14,
+         "head":"Description",
+         "type":"text",
+         "change":"descriptionEdu",
+         "classnamelabel":"form-label",
+         "classnamediv":"col-12",
+         "classnameInput":"form-control"
+    }
+ ]
+}
+
+
