@@ -1,11 +1,11 @@
 import { InputField , inputFields} from './utils'
 import data from '../inputData.json'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 
-export const PersonalDetails = () => {
+export const PersonalDetails = ({func}:any) => {
 
-   const [value,setValue] = useState<object>
+  const [value,setValue] = useState
    ({
       name:"",
       title:"",
@@ -14,23 +14,16 @@ export const PersonalDetails = () => {
       city:"",
       about:"",
    })
- 
+
+
+
   let Personal_Detail_Data_Reference:any = data.Personal_Detail_Data_Reference
-  console.log( value)
-  
-   
-  
-//   interface inputFields {
-//      id: number,
-//      name: string,
-//      type:string,
-//      classNameLabel:string,
-//      Classname : string,
-//      classnameInput:string,
-//      placeholder:string,
-//      value:string,
-//      onChange():void,
-//   }
+    
+  useEffect( ()=>{
+   func(value)
+ },[value])
+
+ 
 
   const onChangeHandler = (input: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
    setValue({ ...value, [input] :e.currentTarget.value})
@@ -39,19 +32,20 @@ export const PersonalDetails = () => {
   return (
  
    <>
-   {Personal_Detail_Data_Reference.map((item:inputFields ) =>(
-       <InputField
-           key={item.id}
-           name={item.name}
-           type={item.type}
-           classNameLabel={item.classNameLabel}
-           Classname={item.Classname}
-           classnameInput={item.classnameInput}
-           placeholder={item.placeholder}
-           value={item.value}
-           onChange={onChangeHandler(item.change!)}
+   {Personal_Detail_Data_Reference.map((item:inputFields ) =>{
+      const {id,name,type,classNameLabel,classname,classnameInput,placeholder,value,change} = item
+    return   <InputField
+           key={id}
+           name={name}
+           type={type}
+           classNameLabel={classNameLabel}
+           classname={classname}
+           classnameInput={classnameInput}
+           placeholder={placeholder}
+           value={value}
+           onChange={onChangeHandler(change!)}
            />
-     ))}
+   })}
      </>
      
    

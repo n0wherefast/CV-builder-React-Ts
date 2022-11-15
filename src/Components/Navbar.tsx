@@ -1,5 +1,5 @@
 import React from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css'
+import { Button } from './utils'
 
 export default function Navbar() {
   return (
@@ -8,7 +8,7 @@ export default function Navbar() {
   <div className="container-fluid">
     <div className="navbar-brand">CV Builder</div>
     <form className="d-flex" role="search">
-      <button className="btn btn-outline-success" type="submit">Search</button>
+      <Button className={"btn btn-outline-success"} type={"submit"} name={"Search"} />
     </form>
   </div>
 </nav>
