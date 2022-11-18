@@ -40,10 +40,10 @@ useEffect(()=>{
 
   return (
     <>
-        {/* <Navbar/> */}
-        <div className='container p-3'>
+        <Navbar/>
+        <div className='container p-4 '>
 
-            {/* <form className='row g-3'>
+            <form className='row g-3 pt-5'>
 
                 <h1><p>Personal Details</p></h1>
                 <PersonalDetails
@@ -64,10 +64,14 @@ useEffect(()=>{
                   onClick={handleSubmit}
                   />
 
-            </form> */}
-           
-           <Cvready/>
+            </form> 
+            
+          
         </div>
+        <div className='container  mt-4 pb-5'>
+          <Cvready/>
+        </div>
+        
         
     </>
    

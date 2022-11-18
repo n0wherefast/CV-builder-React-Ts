@@ -29,7 +29,7 @@ const handleClickRem = () =>{
   return (
     <>
     {Education_Data_Reference.map((item:inputFields ) =>{
-const {id,name,type,classNameLabel,classname,classnameInput,placeholder,value,change} = item
+      const {id,name,type,classNameLabel,classname,classnameInput,placeholder,value,change} = item
       return  <InputField
             key={id}
             name={name}
@@ -50,7 +50,7 @@ const {id,name,type,classNameLabel,classname,classnameInput,placeholder,value,ch
 
     {add.map((item:string) => {
 
-return <div key={item}> 
+return <div  key={item}> 
         {Education_Data_Reference.map((item:inputFields ) => {
         const {id,name,type,classNameLabel,classname,classnameInput,placeholder,value,change} = item
         return <InputField
