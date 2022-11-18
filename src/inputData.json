@@ -76,7 +76,7 @@
         "name":"Company",
         "type":"text",
         "change":"company",
-        "classnamelabel":"form-label",
+        "classNameLabel":"form-label",
         "classname":"col-md-6",
         "classnameInput":"form-control",
         "placeholder":"A Software Company"
@@ -87,7 +87,7 @@
         "name":"Position",
          "type":"text",
          "change":"'position",
-         "classnamelabel":"form-label",
+         "classNameLabel":"form-label",
          "classname":"col-md-6",
          "classnameInput":"form-control",
          "placeholder":"Software Engineer"
@@ -99,7 +99,7 @@
          "name":"Start Date",
          "type":"date",
          "change":"start",
-         "classnamelabel":"form-label",
+         "classNameLabel":"form-label",
          "classname":"col-md-6",
          "classnameInput":"form-control"
     },
@@ -109,7 +109,7 @@
         "name":"End Date",
          "type":"date",
          "change":"end",
-         "classnamelabel":"form-label",
+         "classNameLabel":"form-label",
          "classname":"col-md-6",
          "classnameInput":"form-control"
 
@@ -120,8 +120,8 @@
          "name":"'Description",
          "type":"'text",
          "change":"description",
-         "classnamelabel":"form-label",
-         "classname":"col-md-6",
+         "classNameLabel":"form-label",
+         "classname":"col-md-12",
          "classnameInput":"form-control",
         " placeholder":"Enter here your description"
     }
@@ -134,7 +134,7 @@
          "name":"Course",
          "type":"text",
          "change":"course",
-         "classnamelabel":"form-label",
+         "classNameLabel":"form-label",
          "classname":"col-md-6",
          "classnameInput":"form-control",
          "placeholder":"Course"
@@ -146,7 +146,7 @@
          "name":"University",
          "type":"text",
          "change":"school",
-         "classnamelabel":"form-label",
+         "classNameLabel":"form-label",
          "classname":"col-md-6",
          "classnameInput":"form-control",
          "placeholder":"Harvard University"
@@ -169,7 +169,7 @@
          "name":"Description",
          "type":"text",
          "change":"descriptionEdu",
-         "classnamelabel":"form-label",
+         "classNameLabel":"form-label",
          "classname":"col-12",
          "classnameInput":"form-control"
     }

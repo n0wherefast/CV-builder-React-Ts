@@ -1,17 +1,24 @@
 import React,{ useEffect, useState} from 'react'
 import data from '../inputData.json'
-import { InputField, inputFields } from './utils'
+import { InputField, inputFields,Button } from './utils'
 
-export const WorkExperience = ({func}:any) => {
-
-
-  const [value,setValue] = useState ({ company:"",position:"",start:"",end:"",description:"" })
+export const WorkExperience = ({func}: any ) => {
+  
+  const [value,setValue] = useState<object> ({ company:"",position:"",start:"",end:"",description:"" })
+  const [add,setAdd] = useState<string[]> ([]);
+  const Work_Experience_Data_Reference : any = data.Work_Experience_Data_Reference;
 
   useEffect( ()=>{
     func(value)
   },[value])
 
-const Work_Experience_Data_Reference : any = data.Work_Experience_Data_Reference;
+const handleClickAdd = () =>{
+    setAdd(add =>[...add, 'item'])
+}
+
+const handleClickRem = () =>{
+  setAdd(item => item.filter((_, index) => index !==0))
+}
 
 
 const onChangeHandler = (input: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -20,7 +27,7 @@ const onChangeHandler = (input: string) => (e: React.ChangeEvent<HTMLInputElemen
 
   return (
     <>
-    {Work_Experience_Data_Reference.map((item:inputFields ) =>{
+    {Work_Experience_Data_Reference.map((item:inputFields ) => {
        const {id,name,type,classNameLabel,classname,classnameInput,placeholder,value,change} = item
        return <InputField
             key={id}
@@ -34,6 +41,37 @@ const onChangeHandler = (input: string) => (e: React.ChangeEvent<HTMLInputElemen
             onChange={onChangeHandler(change!)}
             />
     })}
+    
+    <div className='classname'>
+       <Button className={"btn btn-outline-success m-2"} onClick={handleClickAdd} type={"button"} name={"Add"}/>
+    </div>
+
+ {add.map((item:string) => {
+
+     return <div key={item} >  
+        {Work_Experience_Data_Reference.map((item:inputFields ) => {
+        const {id,name,type,classNameLabel,classname,classnameInput,placeholder,value,change} = item
+        return <InputField
+            key={id}
+            name={name}
+            type={type}
+            classNameLabel={classNameLabel}
+            classname={classname}
+            classnameInput={classnameInput}
+            placeholder={placeholder}
+            value={value}
+            onChange={onChangeHandler(change!)}
+            />
+      })}
+
+        <div className='classname'>
+          <Button className={"btn btn-outline-success m-2"} onClick={handleClickAdd} type={"button"} name={"Add"}/>
+          <Button className={"btn btn-outline-danger"} onClick={handleClickRem} type={"button"} name={"Remove"}/>
+        </div> 
+      </div>
+
+  })}
+
       </>
   )
 }

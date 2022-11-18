@@ -3,6 +3,7 @@ import { WorkExperience } from './Components/WorkExperience';
 import { Education } from './Components/Education';
 import Navbar from './Components/Navbar';
 import { Button } from './Components/utils';
+import Cvready from './Components/Cvready';
 // import './App.css';
 import {  useEffect, useState } from 'react';
 
@@ -24,7 +25,7 @@ function App() {
   const pullDataEdu = (data:object) => {
      setEdu(data)
   }
-
+console.log(workExp)
 
 useEffect(()=>{
  
@@ -39,10 +40,10 @@ useEffect(()=>{
 
   return (
     <>
-        <Navbar/>
+        {/* <Navbar/> */}
         <div className='container p-3'>
 
-            <form className='row g-3'>
+            {/* <form className='row g-3'>
 
                 <h1><p>Personal Details</p></h1>
                 <PersonalDetails
@@ -58,13 +59,14 @@ useEffect(()=>{
                 />
                 <Button
                   type={"submit"}
-                  className={"btn btn-outline-success"}
+                  className={"btn btn-outline-success d-grid gap-2 col-4 mx-auto"}
                   name={"Submit"}
                   onClick={handleSubmit}
                   />
 
-            </form>
-
+            </form> */}
+           
+           <Cvready/>
         </div>
         
     </>

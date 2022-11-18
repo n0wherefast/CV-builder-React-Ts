@@ -2,8 +2,8 @@
 export interface inputFields {
   id?:number,
   name: string,
-  type:string,
-  classNameLabel:string,
+  type: 'text' | 'number' | 'date' |'textarea',
+  classNameLabel:"form-label",
   classname : string,
   classnameInput:string,
   placeholder:string,
@@ -13,7 +13,8 @@ export interface inputFields {
 
 }
 interface Buttons{
-  type:any,
+
+  type: 'submit' | 'reset' | 'button'
   className:string,
   name:string,
   onClick?:any,
@@ -41,14 +42,15 @@ export  function InputField({type,name,classNameLabel,classnameInput,placeholder
 }
 
 
-export  function Button({type,className,name,onClick}:Buttons) {
+export  function Button ({type,className,name,onClick}:Buttons) {
   // const {type,className,name,onClick} = props
     return (
       <button
-        type={type} 
-        className={className} 
-        onClick={onClick}>
+         type={type} 
+         className={className} 
+         onClick={onClick}
+        >
           {name} 
-          </button>
+      </button>
     )
   }

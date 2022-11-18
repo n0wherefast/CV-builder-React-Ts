@@ -26,7 +26,7 @@ export const PersonalDetails = ({func}:any) => {
  
 
   const onChangeHandler = (input: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
-   setValue({ ...value, [input] :e.currentTarget.value})
+   setValue({ ...value, [input] : e.currentTarget.value})
   }
   
   return (
