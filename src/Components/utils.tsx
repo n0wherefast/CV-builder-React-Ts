@@ -9,8 +9,7 @@ export interface inputFields {
   placeholder:string,
   value:string,
   onChange:any,
-  change?:string,
-
+  change?:string, 
 }
 interface Buttons{
 
@@ -35,8 +34,7 @@ export  function InputField({type,name,classNameLabel,classnameInput,placeholder
        placeholder={placeholder}
        value={value}
        onChange={onChange}
-    
-        />
+      />
     </div>
   )
 }

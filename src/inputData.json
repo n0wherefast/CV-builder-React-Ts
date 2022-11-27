@@ -145,7 +145,7 @@
          "id":12,
          "name":"University",
          "type":"text",
-         "change":"school",
+         "change":"university",
          "classNameLabel":"form-label",
          "classname":"col-md-6",
          "classnameInput":"form-control",
@@ -157,7 +157,7 @@
          "id":13,
          "name":"Date",
          "type":"date",
-         "change":"'date",
+         "change":"date",
          "classname":"col-md-6",
          "classnameInput":"form-control",
          "placeholder":"Enter here your description"

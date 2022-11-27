@@ -3,7 +3,7 @@ import data from '../inputData.json'
 import React, { useEffect, useState } from 'react'
 
 
-export const PersonalDetails = ({func}:any) => {
+export const PersonalDetails = ({setPersonal}:any) => {
 
   const [value,setValue] = useState
    ({
@@ -20,8 +20,8 @@ export const PersonalDetails = ({func}:any) => {
   let Personal_Detail_Data_Reference:any = data.Personal_Detail_Data_Reference
     
   useEffect( ()=>{
-   func(value)
- },[value])
+ setPersonal(value)
+ },[setPersonal,value])
 
  
 

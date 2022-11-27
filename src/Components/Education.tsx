@@ -2,20 +2,22 @@ import React,{useEffect, useState} from 'react'
 import data from '../inputData.json'
 import { InputField, inputFields,Button } from './utils'
 
-export  const Education = ({func}:any) => {
+export  const Education = ({setEdu}:any) => {
 
-const [value,setValue] = useState ({ course:"",university:"",date:"",description:"" })
+const [value,setValue] = useState<object> ({ course:"",university:"",date:"",description:"" })
 const [add,setAdd] = useState<string[]> ([]);
 const Education_Data_Reference : any = data.Education_Data_Referece;
 
 
 const onChangeHandler = (input: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
-  setValue({ ...value, [input] :e.currentTarget.value})
+  setValue({...value,[input] : e.currentTarget.value})  
  }
+ 
+
 
  useEffect( ()=>{
-    func(value)
-  },[value])
+     setEdu(value)
+  },[setEdu ,value])
 
 
   const handleClickAdd = () =>{
@@ -48,9 +50,9 @@ const handleClickRem = () =>{
     </div>
 
 
-    {add.map((item:string) => {
+    {add.map((item:string ,index:number) => {
 
-return <div  key={item}> 
+return <div  key={index}> 
         {Education_Data_Reference.map((item:inputFields ) => {
         const {id,name,type,classNameLabel,classname,classnameInput,placeholder,value,change} = item
         return <InputField

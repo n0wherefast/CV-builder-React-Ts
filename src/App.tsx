@@ -9,34 +9,33 @@ import {  useEffect, useState } from 'react';
 
 function App() {
 
-   const [value,setValue] = useState<any>();
-   const [workExp,setWorExp] = useState<any>();
+   const [peronalDetail,setPersonal] = useState<any>();
+   const [workExp,setWorExp] = useState<any>([]);
    const [education,setEdu] = useState<any>();
    const [submit,setSubmit] = useState<boolean>(false); 
 
 
-  const pullData = (data:object) => {
-     setValue(data)
-  }
 
-  const pullDataExp = (data:object) => {
-     setWorExp(data)
-  }
-  const pullDataEdu = (data:object) => {
-     setEdu(data)
-  }
-console.log(workExp)
 
-useEffect(()=>{
+//------------------PROV-------------
+console.log(workExp)  
+
+
+//----------------PROV----------------
+
+useEffect(()=>{ 
  
-  
-},[value])
+},[])
    
   const handleSubmit = (e: React.ChangeEvent<HTMLInputElement>) => {
       e.preventDefault();
-      console.log(value, workExp,education.course)
-      
+      setSubmit(true) 
   }
+
+//-------------------------------------
+
+//-------------------------------------
+
 
   return (
     <>
@@ -47,15 +46,16 @@ useEffect(()=>{
 
                 <h1><p>Personal Details</p></h1>
                 <PersonalDetails
-                func={pullData}
+                setPersonal={setPersonal}
+        
                 /> 
                 <h1><p>Work Experience</p></h1>
                 <WorkExperience
-                func={pullDataExp}
+                setWorExp={setWorExp}
                 />
                 <h1><p>Education</p></h1>
                 <Education
-                func={pullDataEdu}
+                setEdu={setEdu}
                 />
                 <Button
                   type={"submit"}
@@ -69,7 +69,27 @@ useEffect(()=>{
           
         </div>
         <div className='container  mt-4 pb-5'>
-          <Cvready/>
+          
+         { submit? <Cvready
+          name = {peronalDetail.name}
+          title = {peronalDetail.title}
+          email = {peronalDetail.email}
+          phone = {peronalDetail.phone}
+          city = {peronalDetail.city}
+          about = {peronalDetail.about}
+
+          company = {workExp.company}
+          description = {workExp.description}
+          position = {workExp.position}
+          start = {workExp.start}
+          end = {workExp.end}
+
+          course = {education.course}
+          university = {education.university}
+          date = {education.date}
+          descriptionEdu = {education.descriptionEdu}
+
+          /> : null}
         </div>
         
         
