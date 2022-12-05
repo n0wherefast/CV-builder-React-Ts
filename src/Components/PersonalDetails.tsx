@@ -15,15 +15,12 @@ export const PersonalDetails = ({setPersonal}:any) => {
       about:"",
    })
 
+  const Personal_Detail_Data_Reference:any = data.Personal_Detail_Data_Reference
 
-
-  let Personal_Detail_Data_Reference:any = data.Personal_Detail_Data_Reference
     
   useEffect( ()=>{
  setPersonal(value)
  },[setPersonal,value])
-
- 
 
   const onChangeHandler = (input: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
    setValue({ ...value, [input] : e.currentTarget.value})
@@ -46,6 +43,13 @@ export const PersonalDetails = ({setPersonal}:any) => {
            onChange={onChangeHandler(change!)}
            />
    })}
+  
+  {
+      
+
+       
+  }
+   
      </>
      
    

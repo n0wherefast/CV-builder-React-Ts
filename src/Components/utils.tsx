@@ -1,13 +1,13 @@
 
 export interface inputFields {
   id?:number,
-  name: string,
+  name: string  ,
   type: 'text' | 'number' | 'date' |'textarea',
   classNameLabel:"form-label",
   classname : string,
   classnameInput:string,
   placeholder:string,
-  value:string,
+  value?:string,
   onChange:any,
   change?:string, 
 }
@@ -27,7 +27,7 @@ export  function InputField({type,name,classNameLabel,classnameInput,placeholder
     <div className={classname}>
       <label className={classNameLabel}>{name}</label>
       
-      <input
+     <input
        className={classnameInput}
        type={type}
        name={name}
