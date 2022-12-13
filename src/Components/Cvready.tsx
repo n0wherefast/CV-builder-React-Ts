@@ -1,30 +1,34 @@
 import { it } from 'node:test'
 import React from 'react'
-interface dataInpunts {
- 
+import { Button } from './utils'
+import PrintProvider,{Print,NoPrint} from 'react-easy-print'
 
-  personalDetail: any,
-  workExperience:any,
-  workExpAdd:any,
-  education:any,
-  eduAdd:any,
 
-  
-}
+
+
+interface dataInpunts { 
+    personalDetail: any,
+    workExperience:any,
+    workExpAdd:any,
+    education:any,
+    eduAdd:any,
+    img:any
+  }
 
 export default function Cvready(props:dataInpunts ) {
-  console.log(typeof props.workExperience)
 
-          const { personalDetail,workExperience,education,workExpAdd,eduAdd} = props
-          const {name,title,email,phone,city,about,image} = personalDetail
+
+          const { personalDetail,workExperience,education,workExpAdd,eduAdd,img} = props
+          const {name,title,email,phone,city,about} = personalDetail
           const{company,position,start,end,description} = workExperience
           const{university,course,date,descriptionEdu} = education
-
-         
+          
+    
+          
          const wExpAdd = workExpAdd.map((item:any,index:any)=>{
           const {company,position,start,end,description} = item
            return <div key={index}>
-              <h1 className='border ps-2 pt-2 pb-1 row'>Work Experience</h1>
+              <h1 className='border-bottom border-top ps-2 pt-2 pb-1 row'>Work Experience</h1>
               <h5>Company</h5>
               <p>{company} </p>   
               <h5>Position</h5>
@@ -41,7 +45,7 @@ export default function Cvready(props:dataInpunts ) {
         const edu = eduAdd.map((item:any,index:any)=>{
           const {university,course,date,descriptionEdu} =item
             return  <div key = {index}>
-          <h1 className='border mt-3 ps-2 pt-2 pb-1 row'>Education</h1>
+          <h1 className='border-bottom border-top mt-3 ps-2 pt-2 pb-1 row'>Education</h1>
           <h5>University</h5>
           <p>{university} </p>
           <h5>Course</h5>
@@ -57,19 +61,22 @@ export default function Cvready(props:dataInpunts ) {
         
 
   return (
-    <div className='row border ratio-1x2' >
+    <PrintProvider>
+      <NoPrint>
+       <Print name='Cv' >
+    <div className='row border mb-4' >
 
       <div className=' border col-4'>
-        <div className='m-2'>
+        <div className='m-2 '>
           <h1>{name}</h1>
         </div>
         <div className='m-2'>
           <h4>{title}</h4>
         </div>
         <div className='m-4'>
-        <img src={image} className="card-img-top" alt="..."/>
+        <img src={img} className="card-img-top" alt="..."/>
         </div>
-        <div className='row  border  '>
+        <div className='row  border-bottom border-top  '>
             <h3 className=' pt-1 mt-1 pb-2 '>Personal Details</h3>
             <h4>Email</h4>
             <p>{email}</p>
@@ -83,7 +90,7 @@ export default function Cvready(props:dataInpunts ) {
       </div>
       <div className=' col-8'>
         <div>
-          <h1 className='border ps-2 pt-2 pb-1 row'>Work Experience</h1>
+          <h1 className='border-bottom ps-2 pt-2 pb-1 row'>Work Experience</h1>
           <h5>Company</h5>
           <p>{company} </p>   
           <h5>Position</h5>
@@ -97,7 +104,7 @@ export default function Cvready(props:dataInpunts ) {
         </div>
              {wExpAdd}
         <div>
-          <h1 className='border mt-3 ps-2 pt-2 pb-1 row'>Education</h1>
+          <h1 className='border-bottom border-top mt-3 ps-2 pt-2 pb-1 row'>Education</h1>
           <h5>University</h5>
           <p>{university} </p>
           <h5>Course</h5>
@@ -110,9 +117,21 @@ export default function Cvready(props:dataInpunts ) {
         </div>
         {edu}
         
-
+        
+    
       </div>
-      
-    </div>
+    
+    </div> 
+   </Print>
+     <NoPrint>
+     <Button
+      type={"submit"}
+      className={"btn btn-outline-success d-grid gap-2 col-4 mx-auto"}
+      name={"Print/Pdf"}
+      onClick={()=>window.print()}
+      />
+      </NoPrint>
+      </NoPrint>
+      </PrintProvider>
   )
 }

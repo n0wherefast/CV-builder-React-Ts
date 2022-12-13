@@ -8,7 +8,6 @@ export default function Navbar() {
   <div className="container-fluid ">
     <div className="navbar-brand">CV Builder</div>
    
-      {/* <Button className={"btn btn-outline-success"} type={"submit"} name={"Search"} /> */}
    
   </div>
 </nav>

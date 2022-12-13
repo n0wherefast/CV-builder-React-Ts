@@ -1,10 +1,12 @@
 import { PersonalDetails } from './Components/PersonalDetails';
 import { WorkExperience } from './Components/WorkExperience';
 import { Education } from './Components/Education';
+import Img from './Components/Img';
 import Navbar from './Components/Navbar';
 import { Button } from './Components/utils';
 import Cvready from './Components/Cvready';
-import {  useEffect, useState } from 'react';
+import {useState } from 'react'
+import PrintProvider,{Print,NoPrint} from 'react-easy-print'
 
 function App() {
 
@@ -13,12 +15,9 @@ function App() {
    const [workExpAdd,setWorExpAdd] = useState<any>();
    const [education,setEdu] = useState<any>();
    const [eduAdd,setEduAdd] = useState<any>();
-   const [submit,setSubmit] = useState<boolean>(false); 
+   const [submit,setSubmit] = useState<boolean>(false);  
+   const [image,setImg] = useState()
 
-
-useEffect(()=>{ 
- 
-},[])
    
   const handleSubmit = (e: React.ChangeEvent<HTMLInputElement>) => {
       e.preventDefault();
@@ -29,14 +28,18 @@ useEffect(()=>{
   }
 
 //-------------------------------------
+// console.log(image)
 
 //-------------------------------------
 
 
   return (
     <>
+    <PrintProvider>
+       <NoPrint>
       <Navbar/>
-        <div className='container p-4 '>
+     
+      { !submit?   <div className='container p-4 '>
 
             <div className='row g-3 pt-5'>
 
@@ -44,13 +47,12 @@ useEffect(()=>{
                 <PersonalDetails
                 setPersonal={setPersonal}
                 /> 
-
+                 <Img setImage ={setImg}/>
                 <h1><p>Work Experience</p></h1>
                 <WorkExperience
                 setWorExp={setWorExp}
                 setWorExpAdd={setWorExpAdd}
                 />
-                
                 <h1><p>Education</p></h1>
                 <Education
                 setEdu={setEdu}
@@ -67,17 +69,27 @@ useEffect(()=>{
             
           
         </div>
-        <div className='container  mt-4 pb-5'>
+       
+
+       : <Print name='CV'>
+        <div className='container p-5 mt-4'>
           
-         { submit? <Cvready
+          
+         <Cvready
+          img= {image}
           personalDetail ={peronalDetail}
           workExperience = {workExp}
           workExpAdd = {workExpAdd}
           education = {education}
           eduAdd = {eduAdd}
-          /> : null}
+         /> 
+        
+          
         </div>
-             
+         </Print>
+      } 
+        </NoPrint>
+      </PrintProvider>
     </>
    
 
@@ -87,10 +99,5 @@ useEffect(()=>{
 export default App;
 
 // ToDo:
-
-
-
-
-// input image 
 // check type
 // ToDo

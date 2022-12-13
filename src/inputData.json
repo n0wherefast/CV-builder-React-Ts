@@ -66,18 +66,7 @@
      "classname":"col-12",
      "classnameInput":"form-control",
      "placeholder":"Enter your text here"
-    },
-    
-    {
-        "id":6,
-        "name":"Photo ",
-         "type":"file",
-         "change":"image",
-         "classNameLabel":"form-label",
-         "classname":"col-12",
-         "classnameInput":"form-control",
-         "placeholder":"Enter your text here"
-        }
+    }
  ],
 
 
@@ -184,7 +173,24 @@
          "classname":"col-12",
          "classnameInput":"form-control"
     }
+ ],
+
+
+"Image": [
+
+    {
+            "id":15,
+            "name":"Photo",
+            "type":"file",
+            "change":"image",
+            "classNameLabel":"form-label",
+            "classname":"col-12",
+            "classnameInput":"form-control",
+            "placeholder":"Enter your text here"
+    }
  ]
+
+
 }
 
 

@@ -3,7 +3,7 @@ export interface inputFields {
   id?:number,
   name: string  ,
   type: 'text' | 'number' | 'date' |'textarea',
-  classNameLabel:"form-label",
+  classNameLabel: "form-label",
   classname : string,
   classnameInput:string,
   placeholder:string,
