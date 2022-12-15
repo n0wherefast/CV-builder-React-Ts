@@ -23,7 +23,7 @@ export const PersonalDetails = ({setPersonal}:any) => {
  setPersonal(value)
  },[setPersonal,value])
 
-
+console.log(value)
 
   const onChangeHandler = (input: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
    setValue({ ...value, [input] : e.currentTarget.value})
