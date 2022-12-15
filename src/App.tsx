@@ -28,7 +28,7 @@ function App() {
   }
 
 //-------------------------------------
-console.log(typeof setPersonal)
+
 
 //-------------------------------------
 
@@ -98,6 +98,3 @@ console.log(typeof setPersonal)
 
 export default App;
 
-// ToDo:
-// check type
-// ToDo
