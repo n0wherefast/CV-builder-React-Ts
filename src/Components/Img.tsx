@@ -2,7 +2,8 @@ import data from '../inputData.json'
 import React, {useState,useEffect} from 'react'
 
 
-function Img({setImage}:any) {
+function Img({setImage}:any):JSX.Element {
+
     const[img,setImg] = useState<File | null>();
     const [preview,setPreview] = useState<string | null>()  
     const {name,type,classNameLabel,classname,classnameInput,placeholder}  = data.Image[0];
@@ -16,7 +17,9 @@ useEffect(()=>{
     reader.readAsDataURL(img);
   } else {setPreview(null)}
   setImage(preview)
+
 },[img, preview, setImage])
+
 
 const imageHandler = (e:any) =>{
   const file = e.target.files![0]
@@ -27,7 +30,7 @@ const imageHandler = (e:any) =>{
             }
 }
 
- console.log(img)
+
   return (
     <>
      <div className={classname}>

@@ -15,7 +15,7 @@
 
 {
     "id":1,
-    "name":"title",
+    "name":"Title",
     "type":"text",
     "change":"title",
     "classNameLabel":"form-label",

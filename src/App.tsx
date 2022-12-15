@@ -28,7 +28,7 @@ function App() {
   }
 
 //-------------------------------------
-// console.log(image)
+console.log(typeof setPersonal)
 
 //-------------------------------------
 
@@ -47,7 +47,7 @@ function App() {
                 <PersonalDetails
                 setPersonal={setPersonal}
                 /> 
-                 <Img setImage ={setImg}/>
+                 <Img setImage = {setImg}/>
                 <h1><p>Work Experience</p></h1>
                 <WorkExperience
                 setWorExp={setWorExp}
