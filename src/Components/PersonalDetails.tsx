@@ -1,10 +1,14 @@
 import { InputField , inputFields} from './utils'
 import data from '../inputData.json'
 import React, { useEffect, useState } from 'react'
-import Img from './Img'
+
+interface funct {
+  setPersonal:Function
+}
 
 
-export const PersonalDetails = ({setPersonal}:any) => {
+
+export const PersonalDetails = ({setPersonal}:funct) => {
 
   const [value,setValue] = useState
    ({
@@ -16,14 +20,13 @@ export const PersonalDetails = ({setPersonal}:any) => {
       about:"",
    })
 
-  const Personal_Detail_Data_Reference:any = data.Personal_Detail_Data_Reference
+  const Personal_Detail_Data_Reference:inputFields[] = data.Personal_Detail_Data_Reference
 
     
-  useEffect( ()=>{
+useEffect( ()=>{
  setPersonal(value)
  },[setPersonal,value])
 
-console.log(value)
 
   const onChangeHandler = (input: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
    setValue({ ...value, [input] : e.currentTarget.value})

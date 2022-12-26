@@ -1,22 +1,48 @@
+import { type } from "@testing-library/user-event/dist/type"
+import {ChangeEventHandler, MouseEventHandler } from "react"
 
 export interface inputFields {
   id?:number,
   name: string  ,
-  type: 'text' | 'number' | 'date' |'textarea',
-  classNameLabel: "form-label",
+  type: string,
+  classNameLabel?: string,
   classname : string,
   classnameInput:string,
-  placeholder:string,
+  placeholder?:string,
   value?:string,
-  onChange:any,
+  onChange?:ChangeEventHandler<HTMLInputElement> ,
   change?:string, 
 }
-interface Buttons{
-
+export interface Buttons{
   type: 'submit' | 'reset' | 'button'
   className:string,
   name:string,
-  onClick?:any,
+  onClick?:MouseEventHandler<HTMLButtonElement>  ,
+  onSubmit?:ChangeEventHandler<HTMLInputElement>
+}
+export type peronalDetailType = {
+  name:string,
+  title:string,
+  email:string,
+  phone:number,
+  city:string,
+  about: string,
+}
+
+export interface workExpType  {
+  map?: Function,
+  company:string,
+  position:string,
+  start:string,
+  end:string,
+  description:string
+}
+export type educationType = { 
+  map:Function,
+  university:string,
+  course:string,
+  date:number,
+  descriptionEdu:string
 }
 
 export  function InputField({type,name,classNameLabel,classnameInput,placeholder,value,onChange,classname }:inputFields) {
@@ -40,7 +66,7 @@ export  function InputField({type,name,classNameLabel,classnameInput,placeholder
 }
 
 
-export  function Button ({type,className,name,onClick}:Buttons) {
+export  function Button ({type,className,name,onClick,onSubmit}:Buttons) {
   // const {type,className,name,onClick} = props
     return (
       <button

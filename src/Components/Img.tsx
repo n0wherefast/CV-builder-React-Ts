@@ -1,8 +1,10 @@
 import data from '../inputData.json'
-import React, {useState,useEffect} from 'react'
+import React, {useState,useEffect, FormEventHandler, ChangeEventHandler} from 'react'
 
-
-function Img({setImage}:any):JSX.Element {
+interface funct {
+  setImage:Function
+}
+function Img({setImage}:funct):JSX.Element {
 
     const[img,setImg] = useState<File | null>();
     const [preview,setPreview] = useState<string | null>()  
@@ -22,9 +24,10 @@ useEffect(()=>{
 
 
 const imageHandler = (e:any) =>{
-  const file = e.target.files![0]
+  const file = e.target!.files![0]
             if(file && file.type.substr(0, 5) === "image") {
               setImg(file);
+              console.log(typeof file)
             } else {
               setImg(null)
             }

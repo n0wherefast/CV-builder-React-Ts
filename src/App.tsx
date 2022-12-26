@@ -3,27 +3,27 @@ import { WorkExperience } from './Components/WorkExperience';
 import { Education } from './Components/Education';
 import Img from './Components/Img';
 import Navbar from './Components/Navbar';
-import { Button } from './Components/utils';
-import Cvready from './Components/Cvready';
-import {useState } from 'react'
+import { Button,peronalDetailType,workExpType,educationType} from './Components/utils';
+import Cvready  from './Components/Cvready';
+import { useState } from 'react'
 import PrintProvider,{Print,NoPrint} from 'react-easy-print'
 
 function App() {
 
-   const [peronalDetail,setPersonal] = useState<any>();
-   const [workExp,setWorExp] = useState<any>();
-   const [workExpAdd,setWorExpAdd] = useState<any>();
-   const [education,setEdu] = useState<any>();
-   const [eduAdd,setEduAdd] = useState<any>();
+   const [peronalDetail,setPersonal] = useState<peronalDetailType>();
+   const [workExp,setWorExp] = useState<workExpType>();
+   const [workExpAdd,setWorExpAdd] = useState<workExpType>();
+   const [education,setEdu] = useState<educationType>();
+   const [eduAdd,setEduAdd] = useState<educationType>();
    const [submit,setSubmit] = useState<boolean>(false);  
    const [image,setImg] = useState()
 
    
-  const handleSubmit = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSubmit = (e:React.ChangeEvent<EventTarget>) => {
       e.preventDefault();
-      if(!peronalDetail.name){
-        alert('name is required')
-      }else{ setSubmit(true) }
+      if(!peronalDetail!.name){
+       return alert('name is required')
+      }else{ return setSubmit(true) }
      
   }
 
@@ -63,7 +63,7 @@ function App() {
                   className={"btn btn-outline-success d-grid gap-2 col-4 mx-auto"}
                   name={"Submit"}
                   onClick={handleSubmit}
-                  />
+                  /> 
 
             </div> 
             
@@ -77,11 +77,11 @@ function App() {
           
          <Cvready
           img= {image}
-          personalDetail ={peronalDetail}
-          workExperience = {workExp}
-          workExpAdd = {workExpAdd}
-          education = {education}
-          eduAdd = {eduAdd}
+          personalDetail = {peronalDetail!}
+          workExperience = {workExp!}
+          workExpAdd = {workExpAdd!}
+          education = {education!}
+          eduAdd = {eduAdd!}
          /> 
         
           

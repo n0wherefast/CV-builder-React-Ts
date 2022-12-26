@@ -1,13 +1,18 @@
-import React,{ useEffect, useState} from 'react'
+import React,{ SetStateAction, useEffect, useState} from 'react'
 import data from '../inputData.json'
-import { InputField, inputFields,Button } from './utils'
+import { InputField, inputFields,Button,workExpType } from './utils'
 
-export const WorkExperience = ({setWorExp,setWorExpAdd}: any ) => {
+interface funct {
+  setWorExp:Function,
+  setWorExpAdd:Function
+}
+
+export const WorkExperience = ({setWorExp,setWorExpAdd}: funct ) => {
 
 
-  const [value,setValue] = useState<any> ({company:'',position:'',start:'',end:'',description:''})
-  const [val,setVal] = useState ([])
-  const Work_Experience_Data_Reference : any = data.Work_Experience_Data_Reference;
+  const [value,setValue] = useState<workExpType> ({company:'',position:'',start:'',end:'',description:''})
+  const [val,setVal] = useState<object[]> ([])
+  const Work_Experience_Data_Reference : inputFields[]= data.Work_Experience_Data_Reference;
 
   useEffect( ()=> {
    setWorExp(value)
@@ -15,7 +20,7 @@ export const WorkExperience = ({setWorExp,setWorExpAdd}: any ) => {
   },[setWorExp,value,val,setWorExpAdd ])
 
 const handleClickAdd = () => {
-    const add:any =[...val,[]]
+    const add:SetStateAction<object[]> =[...val,[]]
     setVal(add)
 }
 
@@ -27,11 +32,10 @@ const onChangeHandler = (input: string) => (e: React.ChangeEvent<HTMLInputElemen
   setValue({...value,[input] : e.currentTarget.value})  
  }
 
-const onChangeHand = (event:any,i:any,input:string) => {
+const onChangeHand = (e:React.ChangeEvent<HTMLInputElement>,i:number,input:string) => {
   const inputData:any = [...val]
-  inputData[i][input]=event.target.value;
-  setVal(inputData)
- 
+  inputData[i][input] = e.target!.value;
+  setVal(inputData) 
  }
 
 // 
@@ -58,10 +62,10 @@ const onChangeHand = (event:any,i:any,input:string) => {
     </div> }
 
 
-    { val.map((data:any,i:any,index:any)=>{
+    { val.map((item:object,i:number,index:object[])=>{
      
-      return  <React.Fragment key={index}>
-        {Work_Experience_Data_Reference.map((item:any) => {
+      return  <React.Fragment key={i}>
+        {Work_Experience_Data_Reference.map((item:inputFields) => {
           const {id,name,type,classNameLabel,classname,classnameInput,placeholder,value,change} = item
           return <InputField
                key={id}
@@ -72,7 +76,7 @@ const onChangeHand = (event:any,i:any,input:string) => {
                classnameInput={classnameInput}
                placeholder={placeholder}
                value={value}
-               onChange={(e:any)=>onChangeHand(e,i,change)}
+               onChange={(e:React.ChangeEvent<HTMLInputElement>)=>onChangeHand(e,i,change!)}
        />
      }) }
      <div className='classname'>

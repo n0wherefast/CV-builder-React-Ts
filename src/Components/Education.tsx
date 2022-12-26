@@ -1,12 +1,17 @@
-import React,{useEffect, useState} from 'react'
+import React,{ChangeEventHandler, SetStateAction, useEffect, useState} from 'react'
 import data from '../inputData.json'
 import { InputField, inputFields,Button } from './utils'
 
-export  const Education = ({setEdu,setEduAdd}:any) => {
+interface funct {
+  setEdu:Function,
+  setEduAdd:Function,
+}
+
+export  const Education = ({setEdu,setEduAdd}:funct) => {
 
 const [value,setValue] = useState<object> ({ course:"",university:"",date:"",description:"" })
-const [val,setVal] = useState ([]);
-const Education_Data_Reference : any = data.Education_Data_Referece;
+const [val,setVal] = useState<object[]> ([]);
+const Education_Data_Reference : inputFields[] = data.Education_Data_Referece;
 
 
 const onChangeHandler = (input: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -20,7 +25,7 @@ const onChangeHandler = (input: string) => (e: React.ChangeEvent<HTMLInputElemen
 
 
   const handleClickAdd = () =>{
-    const add:any = [...val,[]]
+    const add:SetStateAction<object[]> = [...val,[]]
     setVal(add)
 }
 
@@ -28,9 +33,9 @@ const handleClickRem = () =>{
   setVal(item => item.filter((_, index) => index !==0))
 }
 
-const onChangeHand = (event:any,i:any,input:string) => {
+const onChangeHand = (e:React.ChangeEvent<HTMLInputElement>,i:number,input:string) => {
   const inputData:any = [...val]
-  inputData[i][input]=event.target.value;
+  inputData[i][input]=e.target.value;
   setVal(inputData)
  
  }
@@ -58,10 +63,10 @@ const onChangeHand = (event:any,i:any,input:string) => {
     </div>
 
 
-    { val.map((data:any,i:any)=>{
+    { val.map((item:object,i:number)=>{
    
      return  <React.Fragment key={i}>
-       {Education_Data_Reference.map((item:any) => {
+       {Education_Data_Reference.map((item:inputFields) => {
          const {id,name,type,classNameLabel,classname,classnameInput,placeholder,value,change} = item
          return <InputField
               key={id}
@@ -72,7 +77,7 @@ const onChangeHand = (event:any,i:any,input:string) => {
               classnameInput={classnameInput}
               placeholder={placeholder}
               value={value}
-              onChange={(e:any)=>onChangeHand(e,i,change)}
+              onChange={(e:React.ChangeEvent<HTMLInputElement>)=>onChangeHand(e,i,change!)}
       />
     }) }
     <div className='classname'>
